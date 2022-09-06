@@ -9,23 +9,28 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.only(top: 40),
-              child: Text(
-                "Welcome to The Guess Your Number",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                const Padding(
+                  padding: EdgeInsets.only(top: 40),
+                  child: Text(
+                    "Welcome to The Guess Your Number",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Image.asset("images/welcome.png"),
+                const UsernameForm(),
+              ],
             ),
-            Flexible(
-              child: Image.asset("images/welcome.png"),
-            ),
-            const UsernameForm(),
-          ],
+          ),
         ),
       ),
     );

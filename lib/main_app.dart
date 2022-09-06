@@ -30,59 +30,63 @@ class _MainAppState extends State<MainApp> {
     return Scaffold(
         appBar: AppBar(title: const Text("Guess Your Number")),
         backgroundColor: Colors.white,
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Flexible(
-                child: Container(
-                  padding: const EdgeInsets.all(8.0),
-                  margin: const EdgeInsets.fromLTRB(0, 15, 0, 5),
-                  child: Text(
-                    "Hello, ${widget.username} choose a number between 1 to 10, you can only guess 5 times",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w500, fontSize: 24),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-              Flexible(
-                child: SizedBox(
-                  height: 250,
-                  child: Image.asset("images/quiz.png"),
-                ),
-              ),
-              SizedBox(
-                width: 300,
-                child: TextField(
-                  cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.question_mark),
-                    labelText: "Guess the number",
-                    labelStyle: TextStyle(fontSize: 20),
-                    hintText: "Input your guessed number",
-                  ),
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  controller: answer,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(25),
-                child: ElevatedButton(
-                  onPressed: guess,
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.all(12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+        body: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.all(8.0),
+                    margin: const EdgeInsets.fromLTRB(0, 15, 0, 5),
+                    child: Text(
+                      "Hello, ${widget.username} choose a number between 1 to 10, you can only guess 5 times",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: 24),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                  child: const Text(
-                    "Guess",
-                    style: TextStyle(fontSize: 20),
+                  SizedBox(
+                    height: 250,
+                    child: Image.asset("images/quiz.png"),
                   ),
-                ),
+                  SizedBox(
+                    width: 300,
+                    child: TextField(
+                      cursorColor:
+                          Theme.of(context).textSelectionTheme.cursorColor,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.question_mark),
+                        labelText: "Guess the number",
+                        labelStyle: TextStyle(fontSize: 20),
+                        hintText: "Input your guessed number",
+                      ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      controller: answer,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(25),
+                    child: ElevatedButton(
+                      onPressed: guess,
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.all(12),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        "Guess",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ));
   }
